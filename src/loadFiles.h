@@ -11,8 +11,5 @@ std::string LoadTxtFile(const std::string path)
         os << f.rdbuf(); // reading data
         text = os.str();
     }
-    for (int i = 0; i < text.length(); i++)
-        if (text[i] == '\n')
-            text.erase(text.begin() + i);
     return text;
 };

@@ -13,7 +13,7 @@
 
 #define INPUT_SET_PATH "./datasets/sets_family.xml"
 #define INPUT_TXT_PATH "./datasets/family.txt"
-#define OUTPUT_XML_PATH "./build/output.xml"
+#define OUTPUT_XML_PATH "./build/output2.xml"
 
 pugi::xml_document definitionSets, outputXML;
 
@@ -144,13 +144,16 @@ int main()
     definitionSets.load_file(INPUT_SET_PATH); // load sets
 
     int start = 0;
-    const std::string del = "//";
+
+    const std::string del = "//\n";
     int end = inputTxt.find(del);
 
     // loop through every set
     while (end != -1)
     {
         const std::string setTxt = inputTxt.substr(start, end - start);
+        std::cout << setTxt << std::endl;
+
         start = end + del.size();
         end = inputTxt.find(del, start);
 
