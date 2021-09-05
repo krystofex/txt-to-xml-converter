@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<Sets>
+    <Set name="MessageIdentifierType" setID="MSGID">
+        <Element name="MessageTextFormatIdentifier" ffSeq="1"/>
+        <Element name="Version" ffSeq="2"/>
+        <Element name="Year" ffSeq="3"/>
+    </Set>
+    <Set name="NameType" setID="NAME">
+        <Element name="Surname" ffSeq="1"/>
+        <GroupOfFields>
+            <Element name="FirstName" ffSeq="2"/>
+        </GroupOfFields>
+    </Set>
+    <Set name="AddressesType" setID="ADDRS">
+        <Element name="StreetName" ffSeq="1"/>
+        <Element name="TownPart" ffSeq="2"/>
+        <Element name="TownName" ffSeq="3"/>
+        <Element name="PostId" ffSeq="4"/>
+        <Element name="MonthYear" ffSeq="5">
+            <Sequence>
+                <Element name="MonthNameAbbreviated" ffSeq="1" length="3"/>
+                <Element name="Year4Digit" ffSeq="2" length="4"/>
+            </Sequence>
+        </Element>
+    </Set>
+    <Set name="EducationType" setID="EDUC">
+        <Element name="SchoolTypeName" ffSeq="1"/>
+        <Element name="StreetName" ffSeq="2"/>
+        <Element name="TownName" ffSeq="3"/>
+        <Element name="MonthYear" ffSeq="4">
+            <Sequence>
+                <Element name="MonthNameAbbreviated" ffSeq="1" length="3"/>
+                <Element name="Year4Digit" ffSeq="2" length="4"/>
+            </Sequence>
+        </Element>
+    </Set>
+    <Set name="CompanyNameType" setID="CMPNAME">
+        <Element name="CompanyName" ffSeq="1"/>
+        <Element name="StreetName" ffSeq="2"/>
+        <Element name="TownName" ffSeq="3"/>
+        <Element name="PostId" ffSeq="4"/>
+        <Element name="DateAndOrTimeOfReference" ffSeq="5" choice="length">
+            <Choice>
+                <Element name="DateDdmmmyyyy" length="9">
+                    <Sequence>
+                        <Element name="Day" ffSeq="1" length="2"/>
+                        <Element name="MonthNameAbbreviated" ffSeq="2" length="3"/>
+                        <Element name="Year4Digit" ffSeq="3" length="4"/>
+                    </Sequence>
+                </Element>
+                <Element name="MonthYear" length="7">
+                    <Sequence>
+                        <Element name="MonthNameAbbreviated" ffSeq="1" length="3"/>
+                        <Element name="Year4Digit" ffSeq="2" length="4"/>
+                    </Sequence>
+                </Element>
+            </Choice>
+        </Element>
+    </Set>
+    <Set name="PositionType" setID="CMPNAME">
+        <Element name="PositionName" ffSeq="1"/>
+        <Element name="MonthYear" ffSeq="2">
+            <Sequence>
+                <Element name="MonthNameAbbreviated" ffSeq="1" length="3"/>
+                <Element name="Year4Digit" ffSeq="2" length="4"/>
+            </Sequence>
+        </Element>
+    </Set>
+</Sets>
+

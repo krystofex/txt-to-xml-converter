@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<Messages>
+    <Message name="FamilyData" msgID="FAMDATA">
+        <Set name="MessageIdentifier" setID="MSGID" seq="1" repeate="NO"/>
+        <Set name="People" setID="PPL" seq="2" repeate="YES">
+            <Set name="Name" setID="NAME" seq="2" repeate="NO"/>
+            <Set name="Addresses" setID="ADDRS" seq="3" repeate="YES"/>
+            <Set name="Education" setID="EDUC" seq="4" repeate="YES"/>
+            <Set name="Works" setID="WORKS" seq="5" repeate="YES">
+                <Set name="CompanyName" setID="CMPNAME" seq="5" repeate="NO"/>
+                <Set name="WorkPosition" setID="POSITION" seq="6" repeate="YES"/>
+            </Set>
+        </Set>
+    </Message>
+</Messages>
+
