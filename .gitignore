@@ -1,0 +1,18 @@
+# Executables
+*.exe
+*.out
+*.app
+build
+
+# Output file
+output.xml
+output-messages.xml
+
+# Test files
+inputFiles
+
+# Configuration
+.vscode
+
+# Word stuff
+~*
