@@ -25,9 +25,10 @@
     </Set>
     <Set name="EducationType" setID="EDUC">
         <Element name="SchoolTypeName" ffSeq="1"/>
-        <Element name="StreetName" ffSeq="2"/>
-        <Element name="TownName" ffSeq="3"/>
-        <Element name="MonthYear" ffSeq="4">
+        <Element name="SchoolName" ffSeq="2"/>
+        <Element name="StreetName" ffSeq="3"/>
+        <Element name="TownName" ffSeq="4"/>
+        <Element name="MonthYear" ffSeq="5">
             <Sequence>
                 <Element name="MonthNameAbbreviated" ffSeq="1" length="3"/>
                 <Element name="Year4Digit" ffSeq="2" length="4"/>
