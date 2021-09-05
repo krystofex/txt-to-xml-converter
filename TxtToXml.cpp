@@ -13,7 +13,7 @@
 
 #define INPUT_SET_PATH "./datasets/sets_family.xml"
 #define INPUT_TXT_PATH "./datasets/family.txt"
-#define OUTPUT_XML_PATH "output.xml"
+#define OUTPUT_XML_PATH "./build/output.xml"
 
 pugi::xml_document definitionSets, outputXML;
 
@@ -156,6 +156,5 @@ int main()
 
         ConvertSet(setTxt);
     }
-
     outputXML.save_file(OUTPUT_XML_PATH);
 }

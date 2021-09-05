@@ -5,10 +5,10 @@ ADDRS/Bohuslavova 13/-/Trutnov/515 01/SEP2011//
 EDUC/BASIC/ZŠ Staňkova/Staňkova 35/Pardubice/JUN2002//
 EDUC/HIGH/SPŠE/-/Pardubice/JUN2006//
 EDUC/COLLEGE/VŠE/-/Praha/MAY2011//
-CMPNAME/Spedice Turek/Záhrobí 7/515 01/Trutnov/SEP2011//
+CMPNAME/Spedice Turek/Záhrobí 7/Trutnov/515 01/SEP2011//
 POSITION/Manager kooperací/-//
 NAME/Nováková/Květoslava//
 ADDRS/Na kopci 158/Ohrada/Chrudim 2/538 04/MAR2004//
-CMPNAME/Obecní úřad/Velké nám. 36/515 01/Trutnov/SEP2010//
+CMPNAME/Obecní úřad/Velké nám. 36/Trutnov/515 01/SEP2010//
 POSITION/Úřednice/MAR2009//
 POSITION/Asistentka odboru dopravy/NOV2012//
