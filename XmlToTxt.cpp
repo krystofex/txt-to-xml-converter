@@ -52,7 +52,9 @@ int main()
             }
             else if (currentDefinitionElement.child("Sequence") != 0)
             {
-                std::cout << "Sequence\n";
+                outputTxt += "/";
+                for (const pugi::xml_node &sequenceElement : set.child(name))
+                    outputTxt += sequenceElement.text().get();
             }
             else if (set.child(name) == 0)
                 outputTxt += "/-";
