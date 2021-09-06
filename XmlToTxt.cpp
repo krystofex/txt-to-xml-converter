@@ -3,6 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <fstream>
 
 #include "./src/debug/timer.h"
 
@@ -10,7 +11,7 @@
 
 #define INPUT_SET_PATH "./datasets/sets_family.xml"
 #define INPUT_XML_PATH "./build/output.xml"
-#define OUTPUT_TXT_PATH ".build/output.txt"
+#define OUTPUT_TXT_PATH "./build/output.txt"
 
 pugi::xml_document definitionSetsDocument, inputXML;
 std::string outputTxt = "";
@@ -20,7 +21,7 @@ int main()
 #ifdef DEBUG
     Timer timer;
 #endif
-
+    std::ofstream outputFile;
     definitionSetsDocument.load_file(INPUT_SET_PATH); // load sets
     pugi::xml_node definitionSets = definitionSetsDocument.child("Sets");
     inputXML.load_file(INPUT_XML_PATH); // load xml to convert
@@ -41,6 +42,10 @@ int main()
                 outputTxt += "/";
                 outputTxt += set.child(name).text().get();
             }
+
+            else if (set.child(name) == 0)
+                outputTxt += "/-";
+
             std::cout
                 << (name) << " - " << set.child(name).text() << " - " << set.child(name).text().get() << std::endl;
         }
@@ -48,5 +53,7 @@ int main()
         outputTxt += "//\n";
     }
 
-    std::cout << outputTxt << std::endl;
+    outputFile.open(OUTPUT_TXT_PATH);
+    outputFile << outputTxt;
+    outputFile.close();
 }
