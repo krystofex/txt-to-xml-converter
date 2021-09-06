@@ -6,7 +6,7 @@
 
 #include "./src/debug/timer.h"
 #include "./src/sequence.h"
-#include "./src/loadFiles.h"
+#include "./src/files.h"
 #include "./src/prefix.h"
 
 #define DEBUG

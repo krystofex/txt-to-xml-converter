@@ -13,3 +13,12 @@ std::string LoadTxtFile(const std::string path)
     }
     return text;
 };
+
+void SaveTxt(const std::string input, const std::string location)
+{
+    std::ofstream outputFile;
+
+    outputFile.open(location);
+    outputFile << input;
+    outputFile.close();
+}

@@ -3,9 +3,9 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <fstream>
 
 #include "./src/debug/timer.h"
+#include "./src/files.h"
 
 #define DEBUG
 
@@ -21,7 +21,6 @@ int main()
 #ifdef DEBUG
     Timer timer;
 #endif
-    std::ofstream outputFile;
     definitionSetsDocument.load_file(INPUT_SET_PATH); // load sets
     pugi::xml_node definitionSets = definitionSetsDocument.child("Sets");
     inputXML.load_file(INPUT_XML_PATH); // load xml to convert
@@ -29,31 +28,39 @@ int main()
     for (const pugi::xml_node &set : inputXML)
     {
         const pugi::xml_node currentDefinitionSet = definitionSets.find_child_by_attribute("setID", set.attribute("setID").value());
-        const int numberOfElements = currentDefinitionSet.select_nodes("Element").size();
+        const int numberOfElementsInSet = currentDefinitionSet.select_nodes("Element").size();
+        const int numberOfElementsInInput = std::distance(set.begin(), set.end());
 
         outputTxt += set.attribute("setID").value();
 
-        for (int ffseq = 1; ffseq < numberOfElements + 1; ffseq++)
+        for (int ffseq = 1; ffseq < numberOfElementsInSet + 1; ffseq++)
         {
+            if (ffseq > numberOfElementsInInput)
+                break;
+
             const auto name = currentDefinitionSet.find_child_by_attribute("ffSeq", std::to_string(ffseq).c_str()).attribute("name").value();
+            const pugi::xml_node currentDefinitionElement = currentDefinitionSet.find_child_by_attribute("ffSeq", std::to_string(ffseq).c_str());
 
             if (set.child(name).text() != 0)
             {
                 outputTxt += "/";
                 outputTxt += set.child(name).text().get();
             }
-
+            else if (currentDefinitionElement.child("Choice") != 0)
+            {
+                std::cout << "Choice\n";
+            }
+            else if (currentDefinitionElement.child("Sequence") != 0)
+            {
+                std::cout << "Sequence\n";
+            }
             else if (set.child(name) == 0)
                 outputTxt += "/-";
-
-            std::cout
-                << (name) << " - " << set.child(name).text() << " - " << set.child(name).text().get() << std::endl;
         }
 
         outputTxt += "//\n";
     }
 
-    outputFile.open(OUTPUT_TXT_PATH);
-    outputFile << outputTxt;
-    outputFile.close();
+    std::cout << outputTxt << std::endl;
+    SaveTxt(outputTxt, OUTPUT_TXT_PATH);
 }
